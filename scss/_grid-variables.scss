@@ -1,0 +1,17 @@
+/**
+ * Grid Breakpoints
+ * =================================
+ * These are defined here so that the
+ * grid can run as a standalone module (without kickoff).
+ *
+ * When importing the grid into a kickoff project,
+ * the grid will run off the breakpoints specified in
+ * yur kickoff project
+ *
+ */
+$breakpoints: (
+	narrow                  : 400px,
+	mid                     : 750px,
+	wide                    : 1000px,
+	huge                    : 1250px
+);
