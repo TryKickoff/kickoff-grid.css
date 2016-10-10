@@ -1,5 +1,7 @@
 # kickoff-grid.css
-> A simple, fully responsive, grid framework that can help you build complex layouts very easily
+> A simple, fully responsive, grid framework that can help you build complex layouts very easily.
+> Works in combination with Sass or standard CSS
+
 
 [![npm version](https://badge.fury.io/js/kickoff-grid.css.svg)](https://badge.fury.io/js/kickoff-grid.css)
 
