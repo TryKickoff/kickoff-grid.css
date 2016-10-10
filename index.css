@@ -5,7 +5,7 @@
    ██╔═██╗ ██║██║     ██╔═██╗ ██║   ██║██╔══╝  ██╔══╝
    ██║  ██╗██║╚██████╗██║  ██╗╚██████╔╝██║     ██║
    ╚═╝  ╚═╝╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝
- * Kickoff’s CSS Grid Module v0.0.1
+ * Kickoff’s CSS Grid Module v0.0.2
  * https://github.com/trykickoff/kickoff-grid.css
  * http://trykickoff.com
  */
@@ -19,6 +19,15 @@
  * Legacy fallbacks for flexbox
  * Grid span classes
  * Breakpoint stacking
+ */
+/**
+ * Grid Variables
+ * =================================
+ * These are defined here so that the grid can run as a standalone module (outside of Kickoff),
+ * as well as allowing these files to be generated into standard CSS.
+ *
+ * When importing the grid into a Kickoff project, the variables defined in the kickoff variables.scss
+ * will override the values specified here (as long as the grid is imported after kickoffs variables).
  */
 /* Import Grid helpers and mixins */
 /**
@@ -151,17 +160,6 @@
  * Franz Heidl 2015
  *
  * Usage: https://gist.github.com/mrmartineau/0cd2010bf265d712bafb
- */
-/**
- * Grid Breakpoints
- * =================================
- * These are defined here so that the
- * grid can run as a standalone module (without kickoff).
- *
- * When importing the grid into a kickoff project,
- * the grid will run off the breakpoints specified in
- * yur kickoff project
- *
  */
 /**
  * Kickoff grid helpers

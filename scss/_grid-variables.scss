@@ -1,17 +1,27 @@
 /**
- * Grid Breakpoints
+ * Grid Variables
  * =================================
- * These are defined here so that the
- * grid can run as a standalone module (without kickoff).
+ * These are defined here so that the grid can run as a standalone module (outside of Kickoff),
+ * as well as allowing these files to be generated into standard CSS.
  *
- * When importing the grid into a kickoff project,
- * the grid will run off the breakpoints specified in
- * yur kickoff project
- *
+ * When importing the grid into a Kickoff project, the variables defined in the kickoff variables.scss
+ * will override the values specified here (as long as the grid is imported after kickoffs variables).
  */
+
 $breakpoints: (
 	narrow                  : 400px,
 	mid                     : 750px,
 	wide                    : 1000px,
 	huge                    : 1250px
 ) !default;
+
+// Setup layout max-width
+$layout-max-width             : 1000 !default; // [in pixels]
+
+// Grid specific variables
+$grid-column-count        : 12    !default; // Total column count
+$grid-gutter-width        : 20    !default; // [in pixels]
+
+//Settings here override & affect the grid classes output
+$responsive-grid-sizes    : true  !default; // Disable this if you don't want grid sizes for each breakpoint
+$use-legacy-grid          : true  !default; // Disable this is you on’t want to output .no-flexbox classes for older browsers to use

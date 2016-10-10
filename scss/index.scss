@@ -9,26 +9,10 @@
  * Breakpoint stacking
  */
 
-// Setup layout max-width
-$layout-margin                : 0 !default; // [in pixels] Space outside the grid
-$layout-max-width             : 1000 !default; // [in pixels]
-$layout-min-width             : 960 !default; // [in pixels] Minimum width for layout in <IE9
-$layout-max-width--huge       : 1100 !default; // [in pixels]
-$layout-min-width--huge       : 1100 !default; // [in pixels] Minimum width for layout in <IE9
-
-
-// Grid specific variables
-$grid-column-count        : 12    !default; // Total column count
-$grid-gutter-width        : 20    !default; // [in pixels]
-
-//Settings here override & affect the grid classes output
-$responsive-grid-sizes    : true  !default; // Disable this if you don't want grid sizes for each breakpoint
-$use-legacy-grid          : true  !default; // Disable this is you on’t want to output .no-flexbox classes for older browsers to use
-
+@import 'grid-variables';
 
 /* Import Grid helpers and mixins */
 @import 'kickoff-utils.scss';
-@import 'grid-variables';
 @import 'grid-helpers';
 
 /**
