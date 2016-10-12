@@ -12,7 +12,8 @@
 @import 'grid-variables';
 
 /* Import Grid helpers and mixins */
-@import 'kickoff-utils.scss';
+@import "kickoff-utils.scss"; // https://github.com/TryKickoff/kickoff-utils.scss
+@import "include-media/dist/include-media"; // http://include-media.com
 @import 'grid-helpers';
 
 /**
@@ -175,7 +176,7 @@ $g-gutter-half: ($grid-gutter-width / 2) + px;
 @if $responsive-grid-sizes {
 	//loop through our breakpoints
 	@each $name, $value in $breakpoints {
-		@include respond-min($value) {
+		@include media('>#{$value}') {
 			@include gridSpanHelper($name);
 		}
 	}

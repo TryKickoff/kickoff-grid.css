@@ -66,7 +66,7 @@
  * .g--stack--wide
  */
 @mixin grid-stack($breakpoint: $bp-wide) {
-	@include respond-max($breakpoint - 1) {
+	@include media('<#{$breakpoint - 1}') {
 		flex-flow: column nowrap;
 
 		& > .g-col {
