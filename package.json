@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "include-media": "^1.4.8",
-    "kickoff-utils.scss": "^1.0.1"
+    "kickoff-utils.scss": "^1.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
