@@ -4,8 +4,8 @@
  * These are defined here so that the grid can run as a standalone module (outside of Kickoff),
  * as well as allowing these files to be generated into standard CSS.
  *
- * When importing the grid into a Kickoff project, the variables defined in the kickoff variables.scss
- * will override the values specified here (as long as the grid is imported after kickoffs variables).
+ * When importing the grid into your own project, copy the variables from this file into your own variables.scss
+ * They will then override the values specified here (as long as the grid is imported below where your own variables are defined).
  */
 
 $breakpoints: map-to-em((
