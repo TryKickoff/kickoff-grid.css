@@ -5,7 +5,7 @@
    ██╔═██╗ ██║██║     ██╔═██╗ ██║   ██║██╔══╝  ██╔══╝
    ██║  ██╗██║╚██████╗██║  ██╗╚██████╔╝██║     ██║
    ╚═╝  ╚═╝╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝
- * Kickoff’s CSS Grid Module v0.0.2
+ * Kickoff’s CSS Grid Module v0.0.3
  * https://github.com/trykickoff/kickoff-grid.css
  * http://trykickoff.com
  */
@@ -20,16 +20,6 @@
  * Grid span classes
  * Breakpoint stacking
  */
-/**
- * Grid Variables
- * =================================
- * These are defined here so that the grid can run as a standalone module (outside of Kickoff),
- * as well as allowing these files to be generated into standard CSS.
- *
- * When importing the grid into a Kickoff project, the variables defined in the kickoff variables.scss
- * will override the values specified here (as long as the grid is imported after kickoffs variables).
- */
-/* Import Grid helpers and mixins */
 /**
  * Usage:
  *
@@ -160,6 +150,16 @@
  * Franz Heidl 2015
  *
  * Usage: https://gist.github.com/mrmartineau/0cd2010bf265d712bafb
+ */
+/* Import Grid helpers and mixins */
+/**
+ * Grid Variables
+ * =================================
+ * These are defined here so that the grid can run as a standalone module (outside of Kickoff),
+ * as well as allowing these files to be generated into standard CSS.
+ *
+ * When importing the grid into a Kickoff project, the variables defined in the kickoff variables.scss
+ * will override the values specified here (as long as the grid is imported after kickoffs variables).
  */
 /**
  * Kickoff grid helpers
@@ -554,7 +554,7 @@
   .no-flexbox .g-span12 {
     width: 100% !important; }
 
-@media screen and (min-width: 25em) {
+@media (min-width: 25em) {
   .g-span1--narrow {
     -ms-flex-preferred-size: 8.33333% !important;
         flex-basis: 8.33333% !important;
@@ -772,7 +772,7 @@
     .no-flexbox .g-span12--narrow {
       width: 100% !important; } }
 
-@media screen and (min-width: 46.875em) {
+@media (min-width: 46.875em) {
   .g-span1--mid {
     -ms-flex-preferred-size: 8.33333% !important;
         flex-basis: 8.33333% !important;
@@ -990,7 +990,7 @@
     .no-flexbox .g-span12--mid {
       width: 100% !important; } }
 
-@media screen and (min-width: 62.5em) {
+@media (min-width: 62.5em) {
   .g-span1--wide {
     -ms-flex-preferred-size: 8.33333% !important;
         flex-basis: 8.33333% !important;
@@ -1208,7 +1208,7 @@
     .no-flexbox .g-span12--wide {
       width: 100% !important; } }
 
-@media screen and (min-width: 78.125em) {
+@media (min-width: 78.125em) {
   .g-span1--huge {
     -ms-flex-preferred-size: 8.33333% !important;
         flex-basis: 8.33333% !important;
@@ -1426,7 +1426,7 @@
     .no-flexbox .g-span12--huge {
       width: 100% !important; } }
 
-@media screen and (max-width: 24.9375em) {
+@media (max-width: 24.99em) {
   .g--stack--narrow {
     -ms-flex-flow: column nowrap;
         flex-flow: column nowrap; }
@@ -1438,7 +1438,7 @@
       .no-flexbox .g--stack--narrow > .g-col {
         width: 100% !important; } }
 
-@media screen and (max-width: 46.8125em) {
+@media (max-width: 46.865em) {
   .g--stack--mid {
     -ms-flex-flow: column nowrap;
         flex-flow: column nowrap; }
@@ -1450,7 +1450,7 @@
       .no-flexbox .g--stack--mid > .g-col {
         width: 100% !important; } }
 
-@media screen and (max-width: 62.4375em) {
+@media (max-width: 62.49em) {
   .g--stack--wide {
     -ms-flex-flow: column nowrap;
         flex-flow: column nowrap; }
@@ -1462,7 +1462,7 @@
       .no-flexbox .g--stack--wide > .g-col {
         width: 100% !important; } }
 
-@media screen and (max-width: 78.0625em) {
+@media (max-width: 78.115em) {
   .g--stack--huge {
     -ms-flex-flow: column nowrap;
         flex-flow: column nowrap; }
