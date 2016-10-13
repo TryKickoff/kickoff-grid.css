@@ -15,13 +15,21 @@ npm install kickoff-grid.css --save
 
 ## Importing into your styles
 
-With SCSS and the [npm-sass](https://www.npmjs.com/package/npm-sass) module or a similar importer:
+The simplest – and recommended – way to import the Kickoff Grid is to use [Eyeglass](https://github.com/sass-eyeglass/eyeglass).  Eyeglass let’s you import the grid as a named module in your Sass, by specifying:
 
 ```scss
-@import "kickoff-grid.css/index"
+@import "kickoff-grid"
 ```
 
-Then, you will be able to use the grid as detailed in the [TryKickoff docs](http://trykickoff.com/learn/grid):
+This is similar to how you would import modules in JavaScript using NPM.
+
+Alternatively, you can download the source files from Github and include them as you would normally.  If you would like to do this, you will also need to download and include the [Kickoff Utils](https://github.com/TryKickoff/kickoff-utils.scss), as the grid relies on some of the functions it provides.
+
+Finally, if you just want some straight up CSS, you can either grab a copy of the [generated CSS file – index.css](https://github.com/TryKickoff/kickoff-grid.css/blob/master/index.css) which is based off our standard variables, or you can generate your own by downloading the repo, changing the variables in `scss/_grid-variables.scss` file and recompiling the code using Sass.
+
+## Usage
+
+For details on how to use the grid’s features once imported, [see our documentation](http://trykickoff.com/learn/grid):
 
 * Documentation:  http://trykickoff.com/learn/grid
 * Demo: http://trykickoff.com/demos/grids
