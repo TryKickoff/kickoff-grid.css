@@ -28,6 +28,11 @@
 	display: flex !important; // force display: flex, as otherwise may clash with other components display properties (and the grid won’t work)
 	flex-wrap: wrap;
 	flex-direction: row;
+
+	// any image in the grid should have a max-width of it’s container
+    & img {
+        max-width: 100%;
+    }
 }
 
 	.g-col {
@@ -107,11 +112,12 @@ $g-gutter-half: ($grid-gutter-width / 2) + px;
  * Alignment
  * Modifier classes to move our grid elements around
  */
-.g--alignTop       { align-items: flex-start; }
-.g--alignBottom    { align-items: flex-end; }
-.g--alignRight     { justify-content: flex-end; }
-.g--alignCenter    { justify-content: center; }
-.g--alignCenter--v { align-items: center; }
+.g--alignTop        { align-items: flex-start; }
+.g--alignBottom     { align-items: flex-end; }
+.g--alignSelfBottom { align-self: flex-end; }
+.g--alignRight      { justify-content: flex-end; }
+.g--alignCenter     { justify-content: center; }
+.g--alignCenter--v  { align-items: center; }
 
 
 /**
@@ -125,9 +131,11 @@ $g-gutter-half: ($grid-gutter-width / 2) + px;
 /**
  * Shrinking Content
  * Shrink a .g-col down to only the space it needs (flexbox only)
+ *
+ * Effectively just changes it’s values back to the default flex properties
  */
 .g-col--shrink {
-	flex-grow: 0;
+	flex: 0 1 auto;
 }
 
 
@@ -144,7 +152,6 @@ $g-gutter-half: ($grid-gutter-width / 2) + px;
 		.g-col {
 			float: left;
 			min-height: 1px;
-			position: relative;
 			clear: none;
 			box-sizing: border-box;
 		}

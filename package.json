@@ -69,8 +69,15 @@
   "keywords": [
     "⚽",
     "grid",
-    "css"
+    "css",
+    "eyeglass-module"
   ],
+  "eyeglass": {
+    "name": "kickoff-grid",
+    "sassDir": "scss",
+    "needs": "^0.7.1",
+    "exports": false
+  },
   "stylelint": {
     "extends": "stylelint-config-standard",
     "rules": {
