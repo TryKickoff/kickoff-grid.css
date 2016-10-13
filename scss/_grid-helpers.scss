@@ -2,7 +2,7 @@
  * Kickoff grid helpers
  */
 
-@mixin gridSpanHelper($breakpoint: null) {
+@mixin ko-gridSpanHelper($breakpoint: null) {
 	$suffix: null;
 
 	@if $breakpoint {
@@ -10,8 +10,8 @@
 	}
 
 	@for $i from 1 to $grid-column-count + 1 {
-		$col-width: gridColumnWidthCalc($i, true);
-		$col-width-guttered: gridColumnWidthCalc($i, true, true);
+		$col-width: ko-gridColumnWidthCalc($i, true);
+		$col-width-guttered: ko-gridColumnWidthCalc($i, true, true);
 
 		.g-span#{$i}#{$suffix} {
 			flex-basis: $col-width !important;
@@ -22,10 +22,10 @@
 
 			// maybe have an option to include this in a variable
 			&.g-holdWidth#{$suffix} {
-				@include pixelMinWidth($i);
+				@include ko-pixelMinWidth($i);
 
 				.g--gutter--scaled & {
-					@include pixelMinWidth($i, true); // get the hold-width minus the gutter
+					@include ko-pixelMinWidth($i, true); // get the hold-width minus the gutter
 				}
 			}
 
@@ -36,7 +36,7 @@
 				max-width: $col-width-guttered;
 
 				@if $i < $grid-column-count {
-					margin-left: gutterCalc();
+					margin-left: ko-gutterCalc();
 				}
 				@else {
 					margin-left: 0;
@@ -47,7 +47,7 @@
 
 				// used in combination with modernizr or another detection mechanism
 				.no-flexbox & {
-					width: gridColumnWidthCalc($i, true) !important;
+					width: ko-gridColumnWidthCalc($i, true) !important;
 				}
 
 			}
@@ -65,7 +65,7 @@
  * .g--stack--narrow
  * .g--stack--wide
  */
-@mixin grid-stack($breakpoint: 'wide') {
+@mixin ko-grid-stack($breakpoint: 'wide') {
 	@include media('<#{$breakpoint}') {
 		flex-flow: column nowrap;
 
@@ -86,12 +86,12 @@
 /**
  * Gutter Calculations
  * Default: percent
- * Usage: gutterCalc() or gutterCalc(false)
+ * Usage: ko-gutterCalc() or ko-gutterCalc(false)
  * When show-unit is true, returns the percentage, otherwise return a decimal
  */
-@function gutterCalc($show-unit: true) {
+@function ko-gutterCalc($show-unit: true) {
 	@if $show-unit == true {
-		@return percentage(strip-units($grid-gutter-width) / strip-units($layout-max-width));
+		@return percentage(ko-strip-units($grid-gutter-width) / ko-strip-units($layout-max-width));
 	} @else {
 		@return $grid-gutter-width / $layout-max-width;
 	}
@@ -108,31 +108,31 @@
  * $include-gutters: if gutters should be included in the calculations. Default = false
  * $legacy-calc: if we are working out a legacy column width calculation, or not. Default = false
  */
-@function gridColumnWidthCalc($column-span: 1, $show-unit: true, $include-gutters: false) {
+@function ko-gridColumnWidthCalc($column-span: 1, $show-unit: true, $include-gutters: false) {
 	$number-of-blocks-in-container : $grid-column-count / $column-span;
 	$total-width-of-all-blocks     : 1;
 
 	// when including gutters, we need to adjust our % width or flex-basis appropriately
 	@if $include-gutters {
-		$total-width-of-all-gutters    : gutterCalc(false) * ($number-of-blocks-in-container - 1);
+		$total-width-of-all-gutters    : ko-gutterCalc(false) * ($number-of-blocks-in-container - 1);
 		$total-width-of-all-blocks     : 1 - $total-width-of-all-gutters;
 	}
 
 	$width-of-a-single-block       : $total-width-of-all-blocks / $number-of-blocks-in-container;
 
 	@if $show-unit == true {
-		@return percentage(strip-units($width-of-a-single-block));
+		@return percentage(ko-strip-units($width-of-a-single-block));
 	} @else {
 		@return $width-of-a-single-block;
 	}
 }
 
-@mixin pixelMinWidth($column-span: 1, $minusGutter: false) {
+@mixin ko-pixelMinWidth($column-span: 1, $minusGutter: false) {
 	@if $minusGutter == true {
-		min-width: ($layout-max-width * gridColumnWidthCalc($column-span, false)) - ($layout-max-width * gutterCalc(false)) + px;
+		min-width: ($layout-max-width * ko-gridColumnWidthCalc($column-span, false)) - ($layout-max-width * ko-gutterCalc(false)) + px;
 	}
 	@else {
-		min-width: ($layout-max-width * gridColumnWidthCalc($column-span, false)) + px;
+		min-width: ($layout-max-width * ko-gridColumnWidthCalc($column-span, false)) + px;
 	}
 }
 
@@ -143,5 +143,5 @@
  * @include column(2);
  */
 @mixin column($column-span: 1) {
-	width: gridColumnWidthCalc($column-span, true);
+	width: ko-gridColumnWidthCalc($column-span, true);
 }

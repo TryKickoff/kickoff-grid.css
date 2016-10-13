@@ -9,11 +9,11 @@
  * Breakpoint stacking
  */
 
-@import "kickoff-utils.scss"; // https://github.com/TryKickoff/kickoff-utils.scss
+@import "kickoff-utils"; // https://github.com/TryKickoff/kickoff-utils.scss
 
 /* Import Grid helpers and mixins */
 @import 'grid-variables';
-@import "include-media/dist/include-media"; // http://include-media.com
+@import "include-media"; // http://include-media.com
 @import 'grid-helpers';
 
 /**
@@ -76,7 +76,7 @@ $g-gutter-half: ($grid-gutter-width / 2) + px;
 
 .g--gutter--scaled {
 	& > .g-col {
-		margin-left: gutterCalc();
+		margin-left: ko-gutterCalc();
 		margin-right: 0;
 
 		&:first-child {
@@ -146,7 +146,7 @@ $g-gutter-half: ($grid-gutter-width / 2) + px;
 	.no-flexbox {
 		.g {
 			display: block !important; // need this for old Safari, as it thinks it understands flexbox but doesn’t really
-			@include clearfix;
+			@include ko-clearfix;
 		}
 
 		.g-col {
@@ -177,20 +177,20 @@ $g-gutter-half: ($grid-gutter-width / 2) + px;
  * Applied by using .g-spanx to .g-col elements, where x is the number of columns
  */
 
-@include gridSpanHelper; // Default sizes
+@include ko-gridSpanHelper; // Default sizes
 
 // Responsive sizes only generated if $responsive-grid-sizes == true
 @if $responsive-grid-sizes {
 	//loop through our breakpoints
 	@each $name, $value in $breakpoints {
 		@include media('>=#{$value}') {
-			@include gridSpanHelper($name);
+			@include ko-gridSpanHelper($name);
 		}
 	}
 }
 
 @each $name, $value in $breakpoints {
 	.g--stack--#{$name} {
-		@include grid-stack($name);
+		@include ko-grid-stack($name);
 	}
 }

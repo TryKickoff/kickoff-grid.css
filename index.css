@@ -5,7 +5,7 @@
    ██╔═██╗ ██║██║     ██╔═██╗ ██║   ██║██╔══╝  ██╔══╝
    ██║  ██╗██║╚██████╗██║  ██╗╚██████╔╝██║     ██║
    ╚═╝  ╚═╝╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝
- * Kickoff’s CSS Grid Module v0.0.3
+ * Kickoff’s CSS Grid Module v0.0.6
  * https://github.com/trykickoff/kickoff-grid.css
  * http://trykickoff.com
  */
@@ -23,29 +23,29 @@
 /**
  * Usage:
  *
- * getVal(100, $map) - uses an integer
- * getVal(mid, $map) - uses a Sass map
- * getVal($foo, $map) - uses a Sass variable
+ * ko-getVal(100, $map) - uses an integer
+ * ko-getVal(mid, $map) - uses a Sass map
+ * ko-getVal($foo, $map) - uses a Sass variable
  */
 /**
  * Get breakpoints
  *
- * bp()
+ * ko-bp()
  *
  * Usage:
- * bp(100) - uses an integer
- * bp(mid) - uses the $breakpoints Sass map
- * bp($foo) - uses a Sass variable
+ * ko-bp(100) - uses an integer
+ * ko-bp(mid) - uses the $breakpoints Sass map
+ * ko-bp($foo) - uses a Sass variable
  */
 /**
  * Get type size
  *
- * type()
+ * ko-type()
  *
  * Usage:
- * type(100) - uses an integer
- * type(mid) - uses the $type Sass map
- * type($foo) - uses a Sass variable
+ * ko-type(100) - uses an integer
+ * ko-type(mid) - uses the $type Sass map
+ * ko-type($foo) - uses a Sass variable
  */
 /**
  * Usage:
@@ -60,9 +60,18 @@
  );
 
  div {
-   font-size: map-deep-get($grid-configuration, 'columns');
-   width: map-deep-get($grid-configuration, 'layouts', 'medium');
+   font-size: ko-map-deep-get($grid-configuration, 'columns');
+   width: ko-map-deep-get($grid-configuration, 'layouts', 'medium');
  }
+ */
+/**
+ * Multiply
+ * =================
+ * Multiply any value
+ *
+ * Usage:
+ * multiply(15, 2)
+ * multiply($baseline, 1.5)
  */
 /**
  * Sass Mixins
@@ -84,30 +93,30 @@
 /**
  * Min-width media query:
  * - Equivalent to: @media screen and (min-width: 20em) { ... }
- * - Usage: @include respond-min(mid) { ... };
+ * - Usage: @include ko-respond-min(mid) { ... };
  */
 /**
  * Max-width media query:
  * - Equivalent to: @media screen and (max-width: 20em) { ... }
- * - Usage: @include respond-max(mid) { ... };
+ * - Usage: @include ko-respond-max(mid) { ... };
  */
 /**
  * Min-max-width media query:
  * - Equivalent to: @media screen and (min-width: 10em) and (max-width: 20em) { ... }
- * - Usage: @include respond-min-max(narrow, 600) { ... };
+ * - Usage: @include ko-respond-min-max(narrow, 600) { ... };
  */
 /**
  *  HiDPI mixin.
- *  @include hidpi { ... };
+ *  @include ko-hidpi { ... };
  *  Default value set to 1.3 to target Google Nexus 7 (http://bjango.com/articles/min-device-pixel-ratio/)
  */
 /**
  * Hidpi with a minimum width media query
- * @include hidpi-min(bp(mid), 1.5) { ... };
+ * @include ko-hidpi-min(bp(mid), 1.5) { ... };
  */
 /**
  * Hidpi with a max width media query
- * @include hidpi-max(bp(mid), 1.3) { ... };
+ * @include ko-hidpi-max(bp(mid), 1.3) { ... };
  */
 /**
  * Dimensions-based mixins
@@ -121,15 +130,15 @@
  * Typography mixins
  */
 /**
- * position
+ * ko-position
  * Usage:
- * @include position(absolute, 10px 20px 30px 10px);
+ * @include ko-position(absolute, 10px 20px 30px 10px);
  */
 /**
  * vertical-center
  * Vertically center any element. Needs support for CSS tranforms.
  * Usage:
- * @include vertical-center;
+ * @include ko-vertical-center;
  */
 /**
  * Utility Mixins
@@ -158,8 +167,8 @@
  * These are defined here so that the grid can run as a standalone module (outside of Kickoff),
  * as well as allowing these files to be generated into standard CSS.
  *
- * When importing the grid into a Kickoff project, the variables defined in the kickoff variables.scss
- * will override the values specified here (as long as the grid is imported after kickoffs variables).
+ * When importing the grid into your own project, copy the variables from this file into your own variables.scss
+ * They will then override the values specified here (as long as the grid is imported below where your own variables are defined).
  */
 /**
  * Kickoff grid helpers
@@ -175,7 +184,7 @@
 /**
  * Gutter Calculations
  * Default: percent
- * Usage: gutterCalc() or gutterCalc(false)
+ * Usage: ko-gutterCalc() or ko-gutterCalc(false)
  * When show-unit is true, returns the percentage, otherwise return a decimal
  */
 /**
@@ -210,6 +219,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row; }
+  .g img {
+    max-width: 100%; }
 
 .g-col {
   display: block;
@@ -267,6 +278,10 @@
       -ms-flex-align: end;
           align-items: flex-end; }
 
+.g--alignSelfBottom {
+  -ms-flex-item-align: end;
+      align-self: flex-end; }
+
 .g--alignRight {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
@@ -292,11 +307,13 @@
 /**
  * Shrinking Content
  * Shrink a .g-col down to only the space it needs (flexbox only)
+ *
+ * Effectively just changes it’s values back to the default flex properties
  */
 .g-col--shrink {
   -webkit-box-flex: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0; }
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto; }
 
 /**
  * Add fallbacks for non-flexbox supporting browsers (for example, IE8/9)
@@ -311,7 +328,6 @@
 .no-flexbox .g-col {
   float: left;
   min-height: 1px;
-  position: relative;
   clear: none;
   box-sizing: border-box; }
 
