@@ -6,6 +6,7 @@ const config = require('../config');
 const gulp = require('gulp');
 const postcss = require('gulp-postcss');
 const sass = require('gulp-sass');
+const eyeglass = require('eyeglass');
 const stylelint = require('gulp-stylelint');
 const gulpIf = require('gulp-if');
 const banner = require('gulp-banner');
@@ -57,9 +58,7 @@ gulp.task('css', () => {
 
 		// Sass Compilation
 		.pipe(
-			sass({
-				importer: require('npm-sass').importer
-			}).on('error', sass.logError)
+			sass(eyeglass()).on('error', sass.logError)
 		)
 
 		// PostCSS tasks after Sass compilation
