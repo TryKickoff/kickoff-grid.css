@@ -2,7 +2,7 @@
   "name": "kickoff-grid.css",
   "title": "Kickoff’s CSS Grid Module",
   "description": "Simple powerful flexbox grid with float fallbacks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "http://trykickoff.com",
   "repo": "https://github.com/trykickoff/kickoff-grid.css",
   "main": "index.css",
