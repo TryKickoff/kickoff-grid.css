@@ -54,6 +54,11 @@
 			// @if $use-legacy-grid
 
 		}
+		@if $i < 12 {
+			.g-offset#{$i}#{$suffix} {
+				margin-left: $col-width !important;
+			}
+		}
 	}
 }
 
