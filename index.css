@@ -5,7 +5,7 @@
    ██╔═██╗ ██║██║     ██╔═██╗ ██║   ██║██╔══╝  ██╔══╝
    ██║  ██╗██║╚██████╗██║  ██╗╚██████╔╝██║     ██║
    ╚═╝  ╚═╝╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝
- * Kickoff’s CSS Grid Module v1.0.1
+ * Kickoff’s CSS Grid Module v1.1.0
  * https://github.com/trykickoff/kickoff-grid.css
  * http://trykickoff.com
  */
@@ -250,7 +250,9 @@
 .g--stack > .g-col {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
-  max-width: 100%;
+  max-width: 100%; }
+
+.g--stack.g--gutter--scaled > .g-col {
   margin-left: 0; }
 
 /**
