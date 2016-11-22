@@ -89,8 +89,10 @@ $g-gutter-half: ($grid-gutter-width / 2) + px;
 	& > .g-col {
 		flex-basis: 100%;
 		max-width: 100%;
-		margin-left: 0;
 	}
+    &.g--gutter--scaled > .g-col {
+        margin-left: 0;
+    }
 }
 
 
