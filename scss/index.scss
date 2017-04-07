@@ -37,6 +37,7 @@
 
 	.g-col {
 		display: block;
+		box-sizing: border-box; // Ensure border-box is specified as the grid proportions rely on this
 
 		// By default, evenly distribute columns
 		// n.b. to support non-flexbox browsers, you should always add .g-spanx
