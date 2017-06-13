@@ -51,7 +51,7 @@
  * Usage: gutterCalc() or gutterCalc(false)
  */
 
-// Two types of gutter
+// Three types of gutter
 // -------------------
 // .g--gutter
 // Uses padding and fixed gutter px values.
@@ -67,6 +67,23 @@ $g-gutter-half: ($grid-gutter-width / 2) + px;
 	& > .g-col {
 		padding-left: $g-gutter-half;
 		padding-right: $g-gutter-half;
+	}
+}
+
+// .g--gutter--<breakpoints>
+// Generates gutter settings for each defined breakpoint for better gutter control in responsive designs
+
+@each $name, $value in $breakpoints {
+	.g--gutter--#{$name} {
+		@include media(">=#{$name}") {
+			margin-left: -$g-gutter-half;
+			margin-right: -$g-gutter-half;
+
+			& > .g-col {
+				padding-left: $g-gutter-half;
+				padding-right: $g-gutter-half;
+			}
+		}
 	}
 }
 
