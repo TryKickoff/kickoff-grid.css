@@ -5,7 +5,7 @@
    ██╔═██╗ ██║██║     ██╔═██╗ ██║   ██║██╔══╝  ██╔══╝
    ██║  ██╗██║╚██████╗██║  ██╗╚██████╔╝██║     ██║
    ╚═╝  ╚═╝╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝
- * Kickoff’s CSS Grid Module v1.1.0
+ * Kickoff’s CSS Grid Module v1.2.0
  * https://github.com/trykickoff/kickoff-grid.css
  * http://trykickoff.com
  */
@@ -19,6 +19,60 @@
  * Legacy fallbacks for flexbox
  * Grid span classes
  * Breakpoint stacking
+ */
+/**
+ * Colour functions
+ */
+/*
+$color-palette: (
+  white: (
+    base: #ffffff
+  ),
+
+  sky: (
+    lighter: #f9fafb,
+    light: #f4f6f8,
+    base: #dfe3e8,
+    dark: #c4cdd5
+  )
+);
+*/
+/**
+ * Color
+ * Returns the color value for a given color name and group.
+ * HT Shopify Polaris team
+ *
+ * @param {String} $hue - The color's hue.
+ * @param {String} $value - The darkness/lightness of the color. Defaults to base.
+ * @param {Color} $for-background - The background color on which this color will
+ * appear. Applies a multiply filter to ensure appropriate contrast.
+ * @return {Color} The color value.
+ *
+ * Usage (based on the Sass map above):
+ * ko-color(white)
+ * ko-color(sky, dark)
+ * ko-color(sky, lighter)
+ *
+ */
+/**
+ * Darkens the foreground color by the background color. This is the same as the
+ * “multiply” filter in graphics apps.
+ *
+ * @param {Color} $foreground - The color to darken.
+ * @param {Color} $background - The background to base darkening on.
+ * @return {Color} The modified color.
+ */
+/**
+ * Tint
+ * Add percentage of white to a color
+ * Usage:
+ * background-color: ko-color-tint(blue, 20%);
+ */
+/**
+ * Shade
+ * Add percentage of black to a color
+ * Usage:
+ * background-color: ko-color-shade(blue, 20%);
  */
 /**
  * Usage:
@@ -48,6 +102,24 @@
  * ko-type($foo) - uses a Sass variable
  */
 /**
+ * Get font-family
+ *
+ * ko-font()
+ *
+ * Usage:
+ * ko-font(system) - uses 'system' font stack
+ * ko-font(sans) - uses the 'sans' font stack
+ */
+/**
+ * Get z-index value
+ *
+ * ko-zIndex()
+ *
+ * Usage:
+ * ko-zIndex(low) - uses 'low' z-index value
+ * ko-zIndex(mid) - uses 'mid' z-index value
+ */
+/**
  * Usage:
  *
  $grid-configuration: (
@@ -65,13 +137,26 @@
  }
  */
 /**
+ * Modular scale
+ * =================================
+ * Usage: ko-modular-scale($font-size-base, 3, $type-scale)
+ * or with the shorthand version: ko-ms(3)
+ */
+/**
+ * Shorthand modular scale
+ * Uses the $font-size-base and $type-scale framework variables so that you
+ * only need to provide the scale increment
+ *
+ * e.g. ko-ms(5)
+ */
+/**
  * Multiply
  * =================
  * Multiply any value
  *
  * Usage:
- * multiply(15, 2)
- * multiply($baseline, 1.5)
+ * ko-multiply(15, 2)
+ * ko-multiply($baseline, 1.5)
  */
 /**
  * Sass Mixins
@@ -224,8 +309,9 @@
 
 .g-col {
   display: block;
+  box-sizing: border-box;
   -webkit-box-flex: 1;
-      -ms-flex: 1 0 0;
+      -ms-flex: 1 0 0px;
           flex: 1 0 0;
   min-width: 0; }
 
@@ -240,6 +326,38 @@
   .g--gutter > .g-col {
     padding-left: 10px;
     padding-right: 10px; }
+
+@media (min-width: 25em) {
+  .g--gutter--narrow {
+    margin-left: -10px;
+    margin-right: -10px; }
+    .g--gutter--narrow > .g-col {
+      padding-left: 10px;
+      padding-right: 10px; } }
+
+@media (min-width: 46.875em) {
+  .g--gutter--mid {
+    margin-left: -10px;
+    margin-right: -10px; }
+    .g--gutter--mid > .g-col {
+      padding-left: 10px;
+      padding-right: 10px; } }
+
+@media (min-width: 62.5em) {
+  .g--gutter--wide {
+    margin-left: -10px;
+    margin-right: -10px; }
+    .g--gutter--wide > .g-col {
+      padding-left: 10px;
+      padding-right: 10px; } }
+
+@media (min-width: 78.125em) {
+  .g--gutter--huge {
+    margin-left: -10px;
+    margin-right: -10px; }
+    .g--gutter--huge > .g-col {
+      padding-left: 10px;
+      padding-right: 10px; } }
 
 .g--gutter--scaled > .g-col {
   margin-left: 2%;
@@ -1567,8 +1685,10 @@
 
 @media (max-width: 24.99em) {
   .g--stack--narrow {
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap; }
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap; }
     .g--stack--narrow > .g-col {
       -ms-flex-preferred-size: auto !important;
           flex-basis: auto !important;
@@ -1579,8 +1699,10 @@
 
 @media (max-width: 46.865em) {
   .g--stack--mid {
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap; }
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap; }
     .g--stack--mid > .g-col {
       -ms-flex-preferred-size: auto !important;
           flex-basis: auto !important;
@@ -1591,8 +1713,10 @@
 
 @media (max-width: 62.49em) {
   .g--stack--wide {
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap; }
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap; }
     .g--stack--wide > .g-col {
       -ms-flex-preferred-size: auto !important;
           flex-basis: auto !important;
@@ -1603,8 +1727,10 @@
 
 @media (max-width: 78.115em) {
   .g--stack--huge {
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap; }
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap; }
     .g--stack--huge > .g-col {
       -ms-flex-preferred-size: auto !important;
           flex-basis: auto !important;
