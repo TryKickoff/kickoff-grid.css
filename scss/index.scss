@@ -72,16 +72,19 @@ $g-gutter-half: ($grid-gutter-width / 2) + px;
 
 // .g--gutter--<breakpoints>
 // Generates gutter settings for each defined breakpoint for better gutter control in responsive designs
+// Only generated if $responsive-gutters == true
 
-@each $name, $value in $breakpoints {
-	.g--gutter--#{$name} {
-		@include media(">=#{$name}") {
-			margin-left: -$g-gutter-half;
-			margin-right: -$g-gutter-half;
+@if $responsive-gutters {
+	@each $name, $value in $breakpoints {
+		.g--gutter--#{$name} {
+			@include media(">=#{$name}") {
+				margin-left: -$g-gutter-half;
+				margin-right: -$g-gutter-half;
 
-			& > .g-col {
-				padding-left: $g-gutter-half;
-				padding-right: $g-gutter-half;
+				& > .g-col {
+					padding-left: $g-gutter-half;
+					padding-right: $g-gutter-half;
+				}
 			}
 		}
 	}
