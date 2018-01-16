@@ -1,8 +1,8 @@
 {
-  "name": "kickoff-grid.css",
+  "name": "@kickoff/grid.css",
   "title": "Kickoff’s CSS Grid Module",
   "description": "Simple powerful flexbox grid with float fallbacks",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "homepage": "http://trykickoff.com",
   "repo": "https://github.com/trykickoff/kickoff-grid.css",
   "main": "index.css",
@@ -38,9 +38,8 @@
     "node": ">=4.0"
   },
   "dependencies": {
-    "eyeglass": "^1.1.2",
-    "include-media": "^1.4.8",
-    "kickoff-utils.scss": "^2.0.1"
+    "@kickoff/utils.scss": "^3.1.0",
+    "include-media": "^1.4.8"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",

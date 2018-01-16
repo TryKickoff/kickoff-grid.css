@@ -9,11 +9,11 @@
  * Breakpoint stacking
  */
 
-@import "kickoff-utils"; // https://github.com/TryKickoff/kickoff-utils.scss
+@import "../../utils.scss/scss/index"; // https://github.com/TryKickoff/kickoff-utils.scss
 
 /* Import Grid helpers and mixins */
 @import 'grid-variables';
-@import "include-media"; // http://include-media.com
+@import "../../../include-media/dist/include-media"; // http://include-media.com
 @import 'grid-helpers';
 
 /**

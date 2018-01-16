@@ -1,16 +1,20 @@
-# kickoff-grid.css
+# @kickoff/grid.css
 > A simple, fully responsive, grid framework that can help you build complex layouts very easily.
 > Works in combination with Sass or standard CSS
 
 
-[![npm version](https://badge.fury.io/js/kickoff-grid.css.svg)](https://badge.fury.io/js/kickoff-grid.css)
+[![npm version](https://badge.fury.io/js/@kickoff/grid.css.svg)](https://badge.fury.io/js/@kickoff/grid.css)
 
-[![NPM](https://nodei.co/npm/kickoff-grid.css.png)](https://nodei.co/npm/kickoff-grid.css/)
+[![NPM](https://nodei.co/npm/@kickoff/grid.css.png)](https://nodei.co/npm/@kickoff/grid.css/)
 
 ## Install
 
 ```
-npm install kickoff-grid.css --save
+npm install @kickoff/grid.css --save
+
+or
+
+yarn add @kickoff/grid.css
 ```
 
 ## Importing into your styles
@@ -25,7 +29,7 @@ This is similar to how you would import modules in JavaScript using NPM.
 
 Alternatively, you can download the source files from Github and include them as you would normally.  If you would like to do this, you will also need to download and include the [Kickoff Utils](https://github.com/TryKickoff/kickoff-utils.scss), as the grid relies on some of the functions it provides.
 
-Finally, if you just want some straight up CSS, you can either grab a copy of the [generated CSS file – index.css](https://github.com/TryKickoff/kickoff-grid.css/blob/master/index.css) which is based off our standard variables, or you can generate your own by downloading the repo, changing the variables in `scss/_grid-variables.scss` file and recompiling the code using Sass.
+Finally, if you just want some straight up CSS, you can either grab a copy of the [generated CSS file – index.css](https://github.com/TryKickoff/@kickoff/grid.css/blob/master/index.css) which is based off our standard variables, or you can generate your own by downloading the repo, changing the variables in `scss/_grid-variables.scss` file and recompiling the code using Sass.
 
 ## Custom Grid Variables
 
